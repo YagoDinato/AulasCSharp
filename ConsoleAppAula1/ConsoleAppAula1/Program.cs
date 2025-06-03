@@ -44,10 +44,12 @@ else
 float num1 = 0f;
 float num2 = 0f;
 string operacacaoMatematica;
+string opcao;
 
-
-do
+while (true)
 {
+
+
     Console.WriteLine("informe a operação matematica: \n" +
         "+ ou - ou * ou /");
     operacacaoMatematica = Console.ReadLine();
@@ -57,7 +59,8 @@ do
 
     Console.WriteLine("informe o segundo valor");
     num2 = float.Parse(Console.ReadLine());
-
+    #region Estrutura IF
+    /*
     if (operacacaoMatematica == "+")
     {
         //Adição
@@ -81,6 +84,42 @@ do
         //Divisão
         Console.WriteLine($"Divisão {(num1 / num2):F2}");
     }
-} while (operacacaoMatematica == "s");
 
+    else
+    {
+        Console.WriteLine("Operação invalida")
+    }
+    */
+    #endregion
 
+    switch (operacacaoMatematica)
+    {
+        case "+":
+            Console.WriteLine($"Soma: {(num1 + num2):F2}");
+            break;
+
+        case "-":
+            Console.WriteLine($"Subtração: {(num1 - num2):F2}");
+            break;
+
+        case "*":
+            Console.WriteLine($"Multiplicação: {(num1 * num2):F2}");
+            break;
+
+        case "/":
+            Console.WriteLine($"Divisão: {(num1 / num2):F2}");
+            break;
+
+        default:
+            Console.WriteLine("Informe uma opção válida");
+            break;
+    }
+    Console.WriteLine("Deseja continuar s/n"); 
+    opcao = Console.ReadLine();
+
+    if (opcao != "s")
+    {
+        break;
+    }
+    else {  Console.Clear(); }
+}
